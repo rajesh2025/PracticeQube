@@ -1,0 +1,4 @@
+package MultiThreaading
+
+class WaitAndNotify {
+}
