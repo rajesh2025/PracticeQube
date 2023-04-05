@@ -27,9 +27,17 @@ enum class EnumNum(int: Int) {
     Mellow(5)
 }
 
+sealed class STATUS{
+    object Error: STATUS()
+    class SUCCESS:STATUS()
+}
+
 fun main() {
 val sealobj = SubSeal1()
     sealobj.myFunc()
 
     SubSeal2.myFunc()
+
+    val success = STATUS.SUCCESS()
+    val error = STATUS.Error
 }
