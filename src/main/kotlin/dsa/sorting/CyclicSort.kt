@@ -2,12 +2,13 @@ package dsa
 
 fun main() {
 
-    println(missingNumber(intArrayOf(3, 0, 1)))
-    println(missingNumber(intArrayOf(0, 1)))
-    println(missingNumber(intArrayOf(1,2)))
-    println(missingNumber(intArrayOf(9, 6, 4, 2, 3, 5, 7, 0, 1)))
-
-    println(missingNumber(intArrayOf(0)))
+//    println(missingNumber(intArrayOf(3, 0, 1)))
+//    println(missingNumber(intArrayOf(0, 1)))
+//    println(missingNumber(intArrayOf(1,2)))
+//    println(missingNumber(intArrayOf(9, 6, 4, 2, 3, 5, 7, 0, 1)))
+//    println(missingNumber(intArrayOf(0,3,2)))
+//    println(missingNumber(intArrayOf(0)))
+    println(missingNumber(intArrayOf(1)))
 }
 
 
@@ -26,18 +27,13 @@ fun missingNumber(nums: IntArray): Int {
         }
     }
 
-    var missing = 0
+    for (i in nums.indices) {
+        if (nums[i] != i) return i
+    }
 
     if (nums.size != nums[endIndex]) {
         return nums.size
     }
 
-    for (i in nums.indices) {
-        if (nums[i] != i) {
-            missing = i
-            break
-        }
-    }
-
-    return missing
+    return -1
 }

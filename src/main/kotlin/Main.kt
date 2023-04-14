@@ -1,3 +1,5 @@
+
+
 fun main(args: Array<String>) {
     println("Hello World!")
 
@@ -5,10 +7,10 @@ fun main(args: Array<String>) {
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")
 
-    main()
+    maintwo()
 }
 
-fun main() {
+fun maintwo() {
 //    val arrayname = Array(5) { it.inc() }
 //    for (element in arrayname)
 //    {
