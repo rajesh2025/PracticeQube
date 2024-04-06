@@ -1,0 +1,4 @@
+package fundamental
+
+class  TopLevelFunction {
+}

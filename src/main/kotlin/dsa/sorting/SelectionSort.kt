@@ -1,7 +1,5 @@
 package dsa.sorting
 
-import javax.xml.crypto.Data
-
 /*
 stable sorting algorithm
 step 1 - in selection sort we move max item to end of the list
@@ -38,7 +36,25 @@ fun selectionSort(intArr: IntArray) {
 
 
 fun main() {
-    selectionSort(intArrayOf(3, 6, 7, 4, 5, 7, 9, 5, 8, 3, 8))
-
+   // selectionSort(intArrayOf(3, 6, 7, 4, 5, 7, 9, 5, 8, 3, 8))
+    selectionSortStriver(arrayOf(13,46,24,52,20,9))
 //    data class IntArr(val intArr: IntArray)
+}
+
+
+//we are going till n-2 in first loop becoz this condition is required to validate till second last element of the array
+fun selectionSortStriver(intArr: Array<Int>) {
+    for (i in intArr.indices) {
+        var min = i
+        for (j in intArr.indices) {
+            if (intArr[j] < intArr[min]) {
+                min = j
+            }
+        }
+        val temp = intArr[min]
+        intArr[min] = intArr[i]
+        intArr[i] = temp
+    }
+
+    intArr.forEach { print("$it ") }
 }

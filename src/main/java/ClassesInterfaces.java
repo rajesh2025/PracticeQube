@@ -10,6 +10,7 @@ class ClassesInterfaces {
 }
 
 interface MyInterfaces{
+
     interface NestedInterface{
 
     }
