@@ -8,14 +8,27 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 import java.io.IOException
 
-
-class KotlinFlow {
-
+val numberFlow = flow {
+    for (i in 1..3) {
+        emit(i) // Emit numbers 1 to 3
+        delay(100) // Suspend for 100ms
+    }
 }
 
 fun main() {
-    val retryFlow = MutableStateFlow(true)
 
+//runBlocking {
+//    numberFlow.collect {
+//        println()
+//    }
+//}
+        val retryFlow = MutableStateFlow(true)
+
+    retyFUnction(retryFlow)
+
+}
+
+private fun retyFUnction(retryFlow: MutableStateFlow<Boolean>) {
     retryFlow.retryWhen { cause, attempt ->
         if (cause is IOException && attempt < 3) {
             delay(2000)

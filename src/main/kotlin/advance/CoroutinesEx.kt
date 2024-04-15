@@ -6,6 +6,7 @@ import kotlinx.coroutines.channels.consumeEach
 import org.junit.Assert
 
 fun coroutinesEx() {
+
     runBlocking {
         val deferredResult: Deferred<Int> = async {
             // Background task that takes some time
@@ -76,3 +77,51 @@ fun given_channel_when_pass_data_from_one_coroutine_then_receive_in_another() = 
 //    Assert.assertEquals("1, 2, 3, 4, 5", result.await())
     println(result.await())
 }
+
+//viewModelScope.launch {
+//    val data1Response:BaseResponse<Data1>?
+//    val data2Response: BaseResponse<Data2>?
+//    val data3Response: BaseResponse<Data3>?
+//    val call1 = async { repository.getAPIcall1()}
+//    val call2 = async { repository.getAPIcall2()}
+//    val call3 = async { repository.getAPIcall3() }
+//    try {
+//        data1Response = call1.await()
+//        data2Response = call2.await()
+//        data3Response = call3.await()
+//    } catch (ex: Exception) {
+//        ex.printStackTrace()
+//    }
+//    processData(data1Response, data2Response, data3Response)
+//}
+
+//suspend fun fetchData() =
+//    coroutineScope {
+//        val mergedResponse = listOf(
+//            async { getAPIcall1() },
+//            async { getAPIcall2() }
+//        )
+//        mergedResponse.awaitAll()
+//    }
+
+// 2nd
+//viewModelScope.launch {
+//    withContext(Dispatchers.Default) {
+//        val apiResponse1 = api.getAPICall1()
+//        val apiResponse2 = api.getAPICall2()
+//        if (apiResponse1.isSuccessful() && apiResponse2.isSuccessful() { .. }
+//    }
+//}
+
+//3rd
+//repository.getData1()
+//.zip(repository.getData2()) { data1, data2 ->
+//    return@zip data1 + data2
+//}
+//.flowOn(Dispatchers.IO)
+//.catch { e ->
+//    ..
+//}
+//.collect { it ->
+//    handleSuccessResponse(..)
+//}
