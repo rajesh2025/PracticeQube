@@ -30,8 +30,11 @@ fun main() {
     callingFunction()
 
     println(filter<Video.Programming>(videos = videos))
-}
 
+    val numbers = listOf("one","two","three","four")
+    val longerthan3 = numbers.filter { it.length > 3 }
+    println(longerthan3)
+}
 inline fun <reified T> filter(videos: List<Video>): List<T> {
     return videos.filterIsInstance<T>()
 }

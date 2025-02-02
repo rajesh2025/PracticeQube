@@ -1,7 +1,7 @@
 
 
 plugins {
-    kotlin("jvm") version "1.7.21"
+    kotlin("jvm") version "1.9.10"
     application
 }
 
@@ -20,6 +20,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
     implementation("junit:junit:4.13.2")
     testImplementation ("io.mockk:mockk:1.13.1")
+ 
 //    androidTestImplementation ("io.mockk:mockk-android:4.1.0")
 
 //        testImplementation("androidx.test.ext:junit:1.1.5")

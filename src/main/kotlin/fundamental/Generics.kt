@@ -1,5 +1,8 @@
 package fundamental
 
+import java.util.prefs.Preferences
+import javax.naming.Context
+
 
 class Generics<T>(paraName: T) {
     private val name = paraName
@@ -24,6 +27,9 @@ fun main() {
 class Box<P>(p: P) {
     val value = p
 }
+
+
+
 
 
 

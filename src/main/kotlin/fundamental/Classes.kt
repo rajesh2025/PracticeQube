@@ -17,7 +17,9 @@ fun main() {
     // Interface with same function calling
     val interfaceImpl = InterfaceWithSameMethod()
     interfaceImpl.methodAB()
-    print(interfaceImpl)
+    println(interfaceImpl)
+
+    doSomethingWithObject()
 }
 
 class Outer {
@@ -83,9 +85,10 @@ interface InterfaceTwo {
 
 class InterfaceWithSameMethod : InterfaceOne, InterfaceTwo {
     override fun methodAB() {
+
         super<InterfaceOne>.methodAB()
         super<InterfaceTwo>.methodAB()
-        println(" ${this.javaClass.simpleName} ${this.javaClass.enclosingMethod.name}")
+//        println(" ${this.javaClass.simpleName} ${this.javaClass.enclosingMethod.name}")
     }
 
 }
@@ -97,4 +100,24 @@ object SharingWidget {
     fun incrementTwitterLikes() = twitterLikes++
     fun incrementFBLikes() = fbLikes++
     fun display() = println("Facebook - $fbLikes --Twitter - $twitterLikes")
+}
+
+fun doSomethingWithObject() {
+    val obj = object {
+        var x = 0
+        var y = 0
+
+        fun incrementX() {
+            x++
+        }
+
+        fun incrementY() {
+            y++
+        }
+
+    }
+
+    obj.incrementX()
+    obj.incrementY()
+    println("x = ${obj.x}, y = ${obj.y}")
 }

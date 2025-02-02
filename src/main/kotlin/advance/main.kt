@@ -60,7 +60,7 @@ suspend fun main3() {
 }
 
 suspend fun task1() {
-    repeat(3) { count ->
+    repeat(1) { count ->
         println("Task 1: Executing count $count")
         delay(1000) // Simulating some task execution
 //        println("Task 1: Delayed for 1 second")
@@ -68,7 +68,7 @@ suspend fun task1() {
 }
 
 suspend fun task2() {
-    repeat(3) { count ->
+    repeat(1) { count ->
         println("Task 2: Executing count $count")
         delay(500) // Simulating some task execution
 //        println("Task 2: Delayed for 1.5 seconds")
@@ -76,7 +76,7 @@ suspend fun task2() {
 }
 
 suspend fun task3() {
-    repeat(3) { count ->
+    repeat(1) { count ->
         println("Task 3: Executing count $count")
         delay(500) // Simulating some task execution
 //        println("Task 3: Delayed for 2 seconds")
