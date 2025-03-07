@@ -2,13 +2,15 @@ package advance
 
 import java.sql.DriverManager
 
-fun main(){
-processRecords("Alice","Billy","Charlie","Donald")
+fun main() {
+//    processRecords("Alice", "Billy", "Charlie", "Donald")
+
+    guide()
 }
 
-fun processRecords(vararg records: String){
-    for(record in records){
-        executeAndMeasure(record){
+fun processRecords(vararg records: String) {
+    for (record in records) {
+        executeAndMeasure(record) {
             if (record.startsWith("C")) return@executeAndMeasure
             save(record)
         }
@@ -16,10 +18,30 @@ fun processRecords(vararg records: String){
 
 }
 
-inline fun executeAndMeasure(label: String, block:()-> Unit){
+inline fun executeAndMeasure(label: String, block: () -> Unit) {
     block()
 }
 
-fun  save(record: String){
+inline fun execute(action : () -> Unit){
+    action()
+}
+
+fun save(record: String) {
     DriverManager.println(" $record saved")
 }
+
+fun guide() {
+    println("guide start")
+
+    teach {
+        println("teach")
+
+    }
+
+    println("guide end")
+}
+
+inline fun teach(abc: () -> Unit) {
+    abc()
+}
+

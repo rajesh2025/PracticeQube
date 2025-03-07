@@ -20,6 +20,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
     implementation("junit:junit:4.13.2")
     testImplementation ("io.mockk:mockk:1.13.1")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.1")
  
 //    androidTestImplementation ("io.mockk:mockk-android:4.1.0")
 

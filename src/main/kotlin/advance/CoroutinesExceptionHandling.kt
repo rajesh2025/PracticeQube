@@ -1,7 +1,10 @@
 package advance
 
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.internal.NopCollector.emit
 import subjectknowledge.User
 import java.lang.Exception
 import kotlin.contracts.ExperimentalContracts
@@ -59,4 +62,22 @@ private suspend fun someExceptionThrowingWork(){
      }
      block(this)
      return this
+}
+
+fun main2() = kotlinx.coroutines.runBlocking() {
+
+
+    val flow1 = flow {
+        delay(1000)
+        emit("Flow 1 Success")
+    }.catch { emit("Flow 1 Failed: ${it.message}") }
+
+    val flow2 = flow {
+        delay(2000)
+        throw RuntimeException("Network error") // Simulated failure
+    }.catch { emit("Flow 2 Failed: ${it.message}") }
+
+    combine(flow1, flow2) { result1, result2 ->
+        "Result: $result1, $result2"
+    }.collect { println(it) }
 }
